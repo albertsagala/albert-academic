@@ -50,6 +50,7 @@ export const profiles = [
 ] as const;
 
 export const nav = [
+  { href: "/notes/", label: "Research Notes" },
   { href: "#biography", label: "Biography" },
   { href: "#research", label: "Research" },
   { href: "#profiles", label: "Profiles" },

@@ -1,0 +1,60 @@
+[
+  {
+    "slug": "rl-kontrol-iklim-bukti-dan-batas",
+    "title": "Reinforcement Learning untuk Kontrol Iklim: Bukti, Batas, dan Langkah Validasi",
+    "date": "2026-10-14",
+    "category": "AI & Climate Control",
+    "summary": "Tiga studi jurnal memberi arah untuk kontrol berbasis pembelajaran. Hasil simulasi tetap perlu dibedakan dari bukti pada tanaman dan perangkat nyata.",
+    "sections": [
+      {
+        "heading": "Mengapa perlu membaca bukti secara kritis?",
+        "paragraphs": [
+          "Kontrol iklim pertanian mempertemukan dinamika suhu dan kelembapan, kebutuhan tanaman, serta penggunaan sumber daya. Catatan literatur ini membandingkan tiga pendekatan: RL versus MPC, gabungan RL–MPC, dan RL dengan masukan operator. Ini adalah ulasan sumber eksternal, bukan laporan hasil eksperimen Albert atau Toba Smart Farming."
+        ]
+      },
+      {
+        "heading": "1. RL versus MPC: perbandingan harus setara",
+        "paragraphs": [
+          "Morcego dan kolega (2023) menempatkan MPC dan RL dalam kerangka yang sama, menggunakan DDPG untuk ruang keadaan dan aksi kontinu, serta membandingkannya melalui simulasi [1]. Studi ini membantu merumuskan pembanding yang adil; algoritma yang berbeda sebaiknya dinilai terhadap tujuan dan kondisi evaluasi yang sepadan.",
+          "Implikasi metodologis: tetapkan skenario, batas aktuator, dan indikator evaluasi yang sama sebelum mengklaim keunggulan suatu pengendali. Keberhasilan pendekatan aksi kontinu tidak langsung membuktikan keunggulan DQN dengan aksi diskret."
+        ]
+      },
+      {
+        "heading": "2. RL–MPC: pembelajaran bertemu batas fisik",
+        "paragraphs": [
+          "Mallick dan kolega (2025) mengusulkan MPC berparameter yang belajar dari data untuk menyesuaikan model prediksi, batas, dan fungsi biaya saat prediksi tidak pasti. Evaluasi simulasi melaporkan perbaikan kinerja dan pelanggaran batas dibanding pendekatan pembanding [2].",
+          "Implikasi metodologis: arsitektur pembelajaran dapat dipertimbangkan bersama struktur kontrol yang menangani batas. Namun, hasil simulasi tersebut bukan jaminan keamanan pada fasilitas fisik dengan sensor dan aktuator berbeda."
+        ]
+      },
+      {
+        "heading": "3. Masukan operator tidak selalu memperbaiki kebijakan",
+        "paragraphs": [
+          "Xiao dan kolega (2026) menguji reward shaping, policy shaping, dan control sharing dengan masukan operator yang tidak sempurna. Dalam simulasi studi itu, policy shaping dan control sharing meningkatkan profit masing-masing 8,4% dan 6,8%, sedangkan reward shaping menurunkannya 9,4% [3]. Angka tersebut mengikuti skenario dan pembanding paper, bukan prediksi keuntungan fasilitas lain.",
+          "Implikasi metodologis: pengetahuan operator perlu diperlakukan sebagai masukan yang mungkin keliru. Bandingkan agen tanpa masukan, agen dengan masukan, dan kondisi masukan yang memburuk sebelum memilih mekanisme interaksi."
+        ]
+      },
+      {
+        "heading": "Agenda evaluasi untuk indoor farming",
+        "paragraphs": [
+          "Usulan evaluasi berikut merupakan sintesis editorial: bandingkan pengendali dengan baseline rule-based atau PID yang dituning secara layak; pisahkan data pengembangan dari skenario evaluasi; ukur error suhu dan kelembapan, durasi pelanggaran batas, energi, serta frekuensi pergantian aktuator.",
+          "Uji pula perubahan gangguan, kehilangan sensor, dan batas siklus kerja perangkat. Gunakan beberapa pengulangan dan laporkan variasi hasil. Sebelum pengujian pada tanaman nyata, jelaskan mekanisme fallback dan batas tindakan yang diterapkan.",
+          "Ketiga sumber membahas greenhouse dan berbasis simulasi dalam evaluasi yang dirangkum di sini. Transfer ke container indoor farming memerlukan validasi tersendiri karena pencahayaan, sirkulasi udara, geometri, serta aktuator dapat berbeda. Reward tinggi saja belum cukup untuk menyatakan pengendali lebih aman atau lebih hemat energi."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Morcego et al. (2023). Reinforcement Learning versus Model Predictive Control on greenhouse climate control. Computers and Electronics in Agriculture, 215, 108372.",
+        "url": "https://doi.org/10.1016/j.compag.2023.108372"
+      },
+      {
+        "label": "[2] Mallick et al. (2025). Reinforcement learning-based model predictive control for greenhouse climate control. Smart Agricultural Technology, 10, 100751.",
+        "url": "https://doi.org/10.1016/j.atech.2024.100751"
+      },
+      {
+        "label": "[3] Xiao et al. (2026). Grower-in-the-loop interactive reinforcement learning for greenhouse climate control. Computers and Electronics in Agriculture, 242, 111312.",
+        "url": "https://doi.org/10.1016/j.compag.2025.111312"
+      }
+    ]
+  }
+]

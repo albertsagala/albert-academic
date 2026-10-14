@@ -26,14 +26,14 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy/92 text-cream backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#top" className="text-sm font-medium tracking-wide text-cream">
+        <a href="/#top" className="text-sm font-medium tracking-wide text-cream">
           {person.name}
         </a>
         <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
           {nav.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={item.href.startsWith("#") ? `/${item.href}` : item.href}
               className="text-[13px] tracking-wide text-cream/85 transition hover:text-teal-bright"
             >
               {item.label}
@@ -61,7 +61,7 @@ export function Header() {
             {nav.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={item.href.startsWith("#") ? `/${item.href}` : item.href}
                 className="py-3 text-lg text-cream"
                 onClick={() => setOpen(false)}
               >

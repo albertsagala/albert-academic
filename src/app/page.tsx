@@ -1,3 +1,4 @@
+import { ResearchNotes } from "@/components/ResearchNotes";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { person, profiles, researchAreas } from "@/lib/site";
@@ -106,6 +107,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <ResearchNotes />
 
         <section id="profiles" className="scroll-mt-24 bg-forest-deep py-20 text-cream md:py-28">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
