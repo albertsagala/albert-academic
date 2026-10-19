@@ -56,5 +56,71 @@
         "url": "https://doi.org/10.1016/j.compag.2025.111312"
       }
     ]
+  },
+  {
+    "slug": "sensor-jarang-pod-peta-mikroklimat-validasi",
+    "title": "Sensor Jarang untuk Peta Mikroklimat: Dari POD–Greedy ke Validasi Hotspot",
+    "date": "2026-10-19",
+    "category": "Spatial Sensing & Microclimate",
+    "summary": "Studi greenhouse Oktober 2026 menyoroti rekonstruksi suhu dari sedikit sensor. Tantangan engineering-nya adalah memilih lokasi, menguji perubahan kondisi, dan membedakan peta estimasi dari pengukuran langsung.",
+    "sections": [
+      {
+        "heading": "Lebih sedikit sensor, tetapi informasi apa yang dipertahankan?",
+        "paragraphs": [
+          "Pengurangan sensor sebaiknya dimulai dari tujuan pengukuran: memperkirakan suhu rata-rata, merekonstruksi titik-titik tertentu, atau mendeteksi hotspot. Ketiganya menuntut evaluasi berbeda. Catatan ini menelaah tiga sumber eksternal dan menawarkan sintesis metodologis; tidak melaporkan hasil eksperimen Albert atau fasilitas Toba Smart Farming."
+        ]
+      },
+      {
+        "heading": "1. Bukti lapangan terbaru: POD–Greedy pada greenhouse",
+        "paragraphs": [
+          "Xue dan kolega (2026), dalam Measurement volume 287, artikel 122493, menggabungkan proper orthogonal decomposition (POD), pemilihan lokasi secara greedy, dan linear stochastic estimation (LSE) [1]. Abstrak penerbit melaporkan pengukuran suhu selama dua minggu musim panas dengan 40 sensor nirkabel pada greenhouse komersial berukuran 15,8 × 23,6 × 3,6 m.",
+          "Konfigurasi terpilih berisi 3–6 sensor dilaporkan merekonstruksi suhu pada 40 titik dengan average RMSE sekitar 0,368–0,315. Estimasi pada periode dua hari berikutnya mencapai nilai terbaik 0,721 dengan enam sensor. Dua hasil ini berasal dari evaluasi berbeda dan tidak boleh diperlakukan sebagai satu angka akurasi.",
+          "Ringkasan ini dibatasi pada abstrak dan pratinjau penerbit yang dapat ditelusuri. Hasil tersebut merupakan analisis data eksperimen fisik, bukan bukti bahwa seluruh volume greenhouse atau semua musim telah tervalidasi. Klaim lebih jauh memerlukan pembacaan protokol lengkap."
+        ]
+      },
+      {
+        "heading": "2. Dasar metode: pola dari data menentukan lokasi sensor",
+        "paragraphs": [
+          "Manohar dan kolega (2018) menjelaskan pemilihan sensor berbasis representasi berdimensi rendah yang dipelajari dari data. Singular value decomposition dan QR pivoting digunakan untuk memilih titik pengukuran yang mendukung rekonstruksi [2]. Contoh pada paper tersebut bukan eksperimen greenhouse; kontribusinya adalah kerangka matematis sparse sensing.",
+          "Implikasi editorial: bila data pelatihan tidak mencakup pola suhu saat kondisi operasi berubah, basis yang dipelajari dapat kehilangan pola penting. Jumlah sensor kecil bukan tujuan tunggal; kemampuan mempertahankan informasi pada kondisi baru harus diperiksa."
+        ]
+      },
+      {
+        "heading": "3. Soft sensor dan peta 2D adalah alternatif yang berbeda",
+        "paragraphs": [
+          "Brentarolli dan kolega (2024) menggunakan sensor permanen, sensor sementara, regresi linier, dan interpolasi untuk membentuk peta mikroklimat 2D [3]. Metodologi diuji pada greenhouse di dua lokasi pertanian. Sensor sementara dapat dipindah setelah model lokasi dibentuk, sehingga pemetaan tidak mengharuskan semua titik memiliki sensor permanen.",
+          "Ini merupakan bukti berbasis pengukuran lapangan untuk pendekatan soft sensing. Peta 2D tersebut tidak langsung menjadi validasi peta 3D bertingkat rak. Model lokasi dan interpolasi di antara lokasi juga menghasilkan dua sumber ketidakpastian yang perlu dibedakan."
+        ]
+      },
+      {
+        "heading": "Rancangan evaluasi untuk container bertingkat rak",
+        "paragraphs": [
+          "Langkah berikut adalah usulan engineering, bukan hasil ketiga paper. Mulai dengan kampanye sensor yang lebih rapat dan tersinkron, koordinat x–y–z yang terdokumentasi, serta pemeriksaan bias antarsensor. Pisahkan rentang waktu untuk pemilihan sensor, penalaan model, dan pengujian akhir; jangan memilih lokasi menggunakan data uji.",
+          "Bandingkan POD dengan pemilihan greedy atau QR terhadap lokasi merata, pemilihan acak berulang, serta baseline interpolasi seperti IDW, RBF, atau kriging. Gunakan anggaran sensor yang sama. Bedakan rekonstruksi pada titik yang pernah dikalibrasi dari prediksi pada lokasi yang benar-benar ditahan dari proses pengembangan.",
+          "Laporkan RMSE per titik dan per ketinggian, error maksimum, serta kemampuan mendeteksi hotspot yang didefinisikan sebelum pengujian. Untuk klaim 3D, sediakan titik validasi pada beberapa ketinggian. Evaluasi juga periode lampu menyala dan padam, transisi aktuator, kehilangan satu sensor, dan perubahan kondisi kanopi.",
+          "Periksa keterlambatan pemrosesan pada perangkat edge jika peta akan dipakai dalam kontrol. Peta dengan RMSE rendah tetap dapat terlambat atau melewatkan titik ekstrem. Saat ketidakpastian atau kehilangan data melampaui batas yang ditetapkan, pengendali perlu jalur fallback yang teruji."
+        ]
+      },
+      {
+        "heading": "Kesimpulan yang dapat dipertanggungjawabkan",
+        "paragraphs": [
+          "Sumber-sumber ini mendukung pengujian pengukuran yang lebih hemat melalui pola spasial dari data dan soft sensing. Mereka tidak menetapkan jumlah sensor universal untuk container indoor farming. Keputusan mengurangi sensor harus mengikuti batas error dan kebutuhan kontrol yang telah ditentukan, disertai validasi pada ruang dan waktu yang relevan."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Xue, W., Chen, Z., Wang, Z., Hu, C., Liu, X., & Li, K. (2026). Data-driven sensor placement for greenhouse microclimate measurement: A POD-Greedy reduced-basis approach. Measurement, 287, 122493. Ringkasan berdasarkan abstrak/pratinjau penerbit; ditelusuri 19 Oktober 2026.",
+        "url": "https://doi.org/10.1016/j.measurement.2026.122493"
+      },
+      {
+        "label": "[2] Manohar, K., Brunton, B. W., Kutz, J. N., & Brunton, S. L. (2018). Data-Driven Sparse Sensor Placement for Reconstruction: Demonstrating the Benefits of Exploiting Known Patterns. IEEE Control Systems Magazine, 38(3), 63–86. Naskah penulis tersedia di arXiv:1701.07569.",
+        "url": "https://doi.org/10.1109/MCS.2018.2810460"
+      },
+      {
+        "label": "[3] Brentarolli, E., Locatelli, S., Nicoletto, C., Sambo, P., Quaglia, D., & Muradore, R. (2024). A spatio-temporal methodology for greenhouse microclimatic mapping. PLOS ONE, 19(9), e0310454.",
+        "url": "https://doi.org/10.1371/journal.pone.0310454"
+      }
+    ]
   }
 ]
